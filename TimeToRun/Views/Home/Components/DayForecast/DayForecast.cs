@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TimeToRun.Models;
 
 namespace TimeToRun.Views.Home.Components.DayForecast
 {
     public class DayForecast : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(WeatherModel model)
         {
-            return View();
+            return View(model);
         }
     }
 }

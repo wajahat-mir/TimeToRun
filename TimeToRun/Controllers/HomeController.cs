@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TimeToRun.Interfaces;
 using TimeToRun.Models;
 
 namespace TimeToRun.Controllers
@@ -7,15 +8,18 @@ namespace TimeToRun.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IWeatherService _weatherService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IWeatherService weatherService)
         {
             _logger = logger;
+            _weatherService = weatherService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var model = await _weatherService.GetWeeklyWeather(41.593, -87.694);
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
