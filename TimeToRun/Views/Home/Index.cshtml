@@ -1,9 +1,15 @@
-﻿@{
+﻿@model List<TimeToRun.Models.WeatherModel>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-6">This Week</h1>
-    @await Component.InvokeAsync("DayForecast")
-    <h1 class="display-6">Next Week</h1>
+    <div class="weekly-forecast-container">
+        @foreach (var forecast in Model)
+        {
+            @await Component.InvokeAsync("DayForecast", forecast)
+        }
+    </div>
 </div>

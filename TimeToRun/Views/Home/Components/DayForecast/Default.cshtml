@@ -1,13 +1,14 @@
-﻿@section Styles {
+﻿@model TimeToRun.Models.WeatherModel
+
+@section Styles {
     <link href="@Url.Content("./day-forecast.scss")" rel="stylesheet" type="text/css" />
 }
 
 <div class="forecast-container">
-    <div class="day">Sunday</div>
+    <div class="day">@Model.Date</div>
     <div class="conditions">
-        <div>21&deg;</div>
-        <div>0%</div>
-        <div>0 <span>km/h</span></div>
+        <div>@Model.TemperatureMax&deg;</div>
+        <div>@Model.TemperatureMin&deg;</div>
     </div>
-    <div class="status">Time to Run!</div>
+    <div class="status">@Model.Status</div>
 </div>
