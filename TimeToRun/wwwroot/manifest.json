@@ -1,0 +1,19 @@
+{
+  "name": "Time to Run",
+  "short_name": "T2R",
+  "description": "Time to Run application allows users to know the best time to run.",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "img/icons/run_192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "img/icons/run_512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
